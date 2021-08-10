@@ -7,7 +7,6 @@
             id="phone"
             label="Phone Number"
             type="tel"
-            mask="phone"
           ></v-text-field>
         </v-flex>
       </v-layout>
@@ -17,12 +16,15 @@
 
 <script>
 import intlTelInput from 'intl-tel-input';
+import utils from 'intl-tel-input/build/js/utils';
 
 export default {
   mounted() {
     const input = document.querySelector('#phone');
     intlTelInput(input, {
       // any initialisation options go here
+      autoPlaceholder: 'aggressive',
+      utilsScript: utils
     });
   }
 };
